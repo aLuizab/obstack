@@ -1,4 +1,4 @@
-## Documentação do Repositório GitHub: Observabilidade com Grafana, Prometheus, Loki, Tempo, Mimir e Terraform em Kubernetes
+## Observabilidade com Grafana, Prometheus, Loki, Tempo, Mimir e Terraform em Kubernetes
 
 Este repositório contém um projeto abrangente de observabilidade para ambientes Kubernetes, utilizando as seguintes ferramentas:
 
