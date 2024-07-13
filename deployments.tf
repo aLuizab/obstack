@@ -59,36 +59,10 @@ resource "helm_release" "grafana" {
   chart      = "grafana"
   namespace  = kubernetes_namespace.grafana.id
   create_namespace = true
-  version    = "7.0.0"
+  version    = "8.3.4"
   values = [
     file("./grafana/values.yaml")
-  ]
-  timeout = 2000
-  
-
-set {
-    name  = "podSecurityPolicy.enabled"
-    value = true
-  }
-
-  set {
-    name  = "server.persistentVolume.enabled"
-    value = false
-  }
-
-  set {
-    name = "server\\.resources"
-    value = yamlencode({
-      limits = {
-        cpu    = "200m"
-        memory = "50Mi"
-      }
-      requests = {
-        cpu    = "100m"
-        memory = "30Mi"
-      }
-    })
-  }
+  ] 
 }
 
 resource "kubernetes_namespace" "example" {
