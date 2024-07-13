@@ -61,7 +61,7 @@ resource "helm_release" "grafana" {
   create_namespace = true
   version    = "8.3.4"
   values = [
-    file("./grafana/values.yaml")
+    file("./grafana-app/values.yaml")
   ] 
 }
 
