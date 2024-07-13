@@ -29,7 +29,7 @@ set {
 
   set {
     name  = "grafana.enabled"
-    value = false
+    value = true
   }
 
   set {
