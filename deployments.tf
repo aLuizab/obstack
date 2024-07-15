@@ -61,7 +61,8 @@ resource "helm_release" "grafana" {
   create_namespace = true
   version    = "8.3.4"
   values = [
-    file("./grafana-app/values.yaml")
+    file("./grafana-app/values.yaml"),
+    file("./grafana.yaml")
   ] 
 }
 
@@ -117,4 +118,12 @@ resource "kubernetes_deployment" "nginx-exemple" {
   }
 }
 
+resource "grafana_folder" "grafana-app" {
+  title = "My Folder"
+  uid   = "my-folder-uid"
+}
 
+resource "grafana_dashboard" "grafana-app" {
+  folder = grafana_folder.grafana-app.uid
+  config_json = file("./grafana-app/prometheus-dash.json") 
+}
